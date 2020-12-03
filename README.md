@@ -1,2 +1,2 @@
 # sevem
-Simple Event Emitter
+**S**imple **Ev**ent **Em**itter
