@@ -6,7 +6,7 @@ module.sevem = class Sevem {
   emit(name, data) {
     if (!name) { throw 'Missing name argument.'; }
     const event = this.events.get(name);
-    if (!event) { throw 'Event name does not exist.'; }
+    if (!event) { return; }
     if (data) { event.forEach(c => c(data)); }
     else { event.forEach(c => c()); }
   }
