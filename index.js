@@ -4,7 +4,7 @@ module.sevem = class Sevem {
   }
 
   emit(name, data) {
-    if (!name) { throw 'Missing name argument.'; }
+    if (!name) { throw Error('Missing name argument.'); }
     const event = this.events.get(name);
     if (!event) { return; }
     if (data) { event.forEach(c => c(data)); }
@@ -12,16 +12,16 @@ module.sevem = class Sevem {
   }
 
   on(name, callback) {
-    if (!name) { throw 'Missing name argument.'; }
-    if (!callback) { throw 'Missing callback argument.'; }
+    if (!name) { throw Error('Missing name argument.'); }
+    if (!callback) { throw Error('Missing callback argument.'); }
     if (!this.events.get(name)?.add(callback)) {
       this.events.set(name, new Set([callback]));
     }
   }
 
   off(name, callback) {
-    if (!name) { throw 'Missing name argument.'; }
-    if (!callback) { throw 'Missing callback argument.'; }
+    if (!name) { throw Error('Missing name argument.'); }
+    if (!callback) { throw Error('Missing callback argument.'); }
     this.events.get(name)?.delete(callback);
   }
 
